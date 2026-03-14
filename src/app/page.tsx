@@ -605,11 +605,11 @@ export default function Home() {
             <h2>Comprehensive Solutions</h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
-            {services.map((service, i) => (
+            {Array.isArray(services) && services.map((service, i) => (
               <div key={i} className="card animate-fade-in" style={{ animationDelay: `${i * 100}ms` }}>
                 <h3 style={{ marginBottom: '1.5rem', color: 'var(--accent)' }}>{service.title}</h3>
                 <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                  {service.items.map((item: string, j: number) => (
+                  {Array.isArray(service.items) && service.items.map((item: string, j: number) => (
                     <li key={j} style={{ color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem' }}>
                       <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--accent)' }}></div>
                       {item}
@@ -632,7 +632,7 @@ export default function Home() {
             <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>What Clients Say</h2>
           </div>
 
-          {testimonials.length > 0 && <TestimonialsCarousel testimonials={testimonials} />}
+          {Array.isArray(testimonials) && testimonials.length > 0 && <TestimonialsCarousel testimonials={testimonials} />}
         </div>
       </section>
 
@@ -714,7 +714,7 @@ export default function Home() {
                     style={{ appearance: 'none', color: '#fff', background: 'rgba(255,255,255,0.05)' }}
                   >
                     <option value="" disabled style={{ background: '#0a0a0a' }}>Select a service...</option>
-                    {contactServices.map(s => (
+                    {Array.isArray(contactServices) && contactServices.map((s: any) => (
                       <option key={s.id} value={s.label} style={{ background: '#0a0a0a', color: '#fff' }}>{s.label}</option>
                     ))}
                   </select>
