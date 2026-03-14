@@ -162,16 +162,16 @@ export default function SettingsPage() {
                     <textarea 
                       className="input-field" 
                       rows={3} 
-                      value={settings[item.key] || ''} 
-                      onChange={(e) => setSettings({ ...settings, [item.key]: e.target.value })}
+                      value={settings && settings[item.key] ? settings[item.key] : ''} 
+                      onChange={(e) => setSettings({ ...(settings || {}), [item.key]: e.target.value })}
                     />
                   ) : (
                     <input 
                       type="text" 
                       className="input-field" 
                       placeholder={item.placeholder || ''}
-                      value={settings[item.key] || ''} 
-                      onChange={(e) => setSettings({ ...settings, [item.key]: e.target.value })}
+                      value={settings && settings[item.key] ? settings[item.key] : ''} 
+                      onChange={(e) => setSettings({ ...(settings || {}), [item.key]: e.target.value })}
                     />
                   )}
                 </div>

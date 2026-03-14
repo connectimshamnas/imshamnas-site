@@ -143,7 +143,7 @@ export default function AdminTestimonials() {
       {/* List */}
       <h3 style={{ marginBottom: '1.5rem' }}>Existing Testimonials</h3>
       <div style={{ display: 'grid', gap: '1.5rem' }}>
-        {testimonials.map(t => (
+        {Array.isArray(testimonials) && testimonials.map(t => (
           <div key={t.id} className="card" style={{ padding: '1.5rem' }}>
             {editingId === t.id ? (
               <div style={{ display: 'grid', gap: '1rem' }}>

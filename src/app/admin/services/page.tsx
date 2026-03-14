@@ -67,7 +67,7 @@ export default function AdminServices() {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
-        {services.map(s => (
+        {Array.isArray(services) && services.map(s => (
           <div key={s.id} className="card" style={{ position: 'relative' }}>
             <button 
               onClick={() => handleDelete(s.id)} 
@@ -77,7 +77,7 @@ export default function AdminServices() {
             </button>
             <h3 style={{ marginBottom: '1rem', color: 'var(--accent)', paddingRight: '2rem' }}>{s.title}</h3>
             <ul style={{ paddingLeft: '1.5rem', color: 'var(--text-secondary)' }}>
-              {s.items.map((item: string, i: number) => (
+              {Array.isArray(s.items) && s.items.map((item: string, i: number) => (
                 <li key={i}>{item}</li>
               ))}
             </ul>

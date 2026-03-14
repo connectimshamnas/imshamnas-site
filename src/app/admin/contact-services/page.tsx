@@ -86,10 +86,10 @@ export default function AdminContactServices() {
 
       <div style={{ display: 'grid', gap: '1rem' }}>
         <h3 style={{ marginBottom: '0.5rem' }}>Existing Options</h3>
-        {services.length === 0 ? (
+        {Array.isArray(services) && services.length === 0 ? (
           <p style={{ color: 'var(--text-secondary)' }}>No options defined.</p>
         ) : (
-          services.map(s => (
+          Array.isArray(services) && services.map(s => (
             <div key={s.id} className="card" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 1.5rem' }}>
               <span style={{ fontWeight: 600 }}>{s.label}</span>
               <button 

@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 
-// Hard-coded admin credentials (can be changed here)
-const ADMIN_USERNAME = 'admin';
-const ADMIN_PASSWORD = 'admin123';
-const SESSION_SECRET = 'imshamnas-admin-secret-2024';
+// Admin credentials from environment variables (with defaults for development)
+const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'admin';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
+const SESSION_SECRET = process.env.ADMIN_SESSION_SECRET || 'imshamnas-admin-secret-2024';
 
 export async function POST(req: Request) {
   try {

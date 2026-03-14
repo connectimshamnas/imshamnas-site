@@ -19,7 +19,7 @@ export default function AdminMessages() {
       <h1 style={{ marginBottom: '2rem' }}>Contact Messages & Leads</h1>
 
       <div style={{ display: 'grid', gap: '1.5rem' }}>
-        {messages.length === 0 ? (
+        {(!Array.isArray(messages) || messages.length === 0) ? (
           <p style={{ color: 'var(--text-secondary)' }}>No messages yet.</p>
         ) : (
           messages.map(m => (
